@@ -56,7 +56,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Not sure */
   align-items: center;
   flex: 1;
   flex-basis: 25rem;
@@ -163,10 +162,11 @@ body {
 .reveal-text {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 150%;
   background: #17181a;
   left: 0%;
-  top: 0%;
+  top: -15%;
+  z-index: 1;
 }
 
 .cursor {
@@ -175,4 +175,8 @@ body {
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
+}
+
+.scrollmagic-pin-spacer {
+  position: static !important;
 }
