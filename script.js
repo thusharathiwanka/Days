@@ -5,6 +5,7 @@ let burgerMenu = document.querySelector(".burger-menu");
 let controller;
 let slideScene;
 let pageScene;
+let fashionScene;
 
 //gsap stuff
 function animateSlides() {
@@ -46,6 +47,7 @@ function animateSlides() {
     //adding new timeline
     const pageTl = gsap.timeline();
     let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
+
     pageTl.fromTo(nextSlide, { y: "0%" }, { y: "50%" });
     pageTl.fromTo(slide, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.5 });
     pageTl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.5");
@@ -114,6 +116,36 @@ function navToggle(event) {
   }
 }
 
+function animateFashion() {
+  controller = new ScrollMagic.Controller();
+  const slides = document.querySelectorAll(".detail-slide");
+
+  slides.forEach((slide, index, slides) => {
+    const slideTl = gsap.timeline({ defaults: { duration: 1 } });
+    let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
+    const nextImg = nextSlide.querySelector("img");
+
+    slideTl.fromTo(slide, { opacity: 1 }, { opacity: 0 });
+    slideTl.fromTo(nextSlide, { opacity: 0 }, { opacity: 1 }, "-=1");
+    slideTl.fromTo(nextImg, { x: "50%" }, { x: "0%" });
+
+    fashionScene = new ScrollMagic.Scene({
+      triggerElement: slide,
+      duration: "100%",
+      triggerHook: 0,
+    })
+      .setPin(slide, { pushFollowers: false })
+      .setTween(slideTl)
+      .addIndicators({
+        colorStart: "white",
+        colorTrigger: "white",
+        name: "fashion",
+        indent: 200,
+      })
+      .addTo(controller);
+  });
+}
+
 window.addEventListener("mousemove", animateCursor);
 window.addEventListener("mouseover", activeCursor);
 burgerMenu.addEventListener("click", navToggle);
@@ -135,6 +167,13 @@ barba.init({
     },
     {
       namespace: "fashion",
+      beforeEnter() {
+        animateFashion();
+      },
+      beforeLeave() {
+        controller.destroy();
+        fashionScene.destroy();
+      },
     },
   ],
   transitions: [

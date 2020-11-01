@@ -242,12 +242,12 @@ body.hide {
   height: 100%;
   top: 0;
   left: 0;
-  /* transform: translateX(-100%); */
+  transform: translateX(-100%);
 }
 
 .swipe-1 {
-  color: rgb(167, 110, 231);
-  z-index: 6;
+  background: rgb(167, 110, 231);
+  z-index: 5;
 }
 
 .swipe-2 {
@@ -262,4 +262,67 @@ body.hide {
 
 .scrollmagic-pin-spacer {
   position: static !important;
+}
+
+/* fashion page */
+.fashion-1,
+.fashion-2,
+.fashion-3 {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  color: white;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.fashion-img {
+  height: 75vh;
+  flex-basis: 30rem;
+}
+
+.fashion-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.fashion-text {
+  flex: 1;
+  position: relative;
+  flex-basis: 25rem;
+}
+
+.fashion-text h1 {
+  font-size: 6rem;
+  font-weight: 600;
+  padding: 3rem 0 2rem 0;
+}
+
+.fashion-1 h1 {
+  color: rgb(255, 139, 93);
+}
+.fashion-2 h1 {
+  color: rgb(86, 124, 228);
+}
+.fashion-3 h1 {
+  color: rgb(172, 69, 88);
+}
+
+.fashion-text {
+  font-size: 1.3rem;
+  padding: 2rem 2rem 0 0;
+  margin-bottom: 10rem;
+}
+
+.fashion-no {
+  font-size: 15rem;
+  position: absolute;
+  left: 40%;
+  bottom: 10%;
+  opacity: 0.2;
 }
