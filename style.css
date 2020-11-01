@@ -229,7 +229,7 @@ main {
 }
 
 .t-swipe-3 {
-  color: rgb(167, 110, 231);
+  background: rgb(167, 110, 231);
 }
 
 body.hide {
@@ -325,4 +325,87 @@ body.hide {
   left: 40%;
   bottom: 10%;
   opacity: 0.2;
+}
+
+/* media queries */
+@media screen and (max-width: 1024px) {
+  main {
+    width: 100%;
+    margin: 0;
+  }
+
+  .slide {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-desc {
+    padding: 0;
+  }
+
+  .hero-desc h2 {
+    font-size: 3rem;
+    padding: 1rem 0;
+  }
+
+  .hero-img {
+    padding-top: 2rem;
+  }
+
+  .hero-desc p {
+    font-size: 1rem;
+    padding: 2rem 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+
+  .explore {
+    width: 60%;
+    margin: auto;
+  }
+
+  .detail-slide {
+    width: 100%;
+    text-align: center;
+  }
+
+  .fashion-text p {
+    padding: 0;
+  }
+
+  .fashion-text h1 {
+    font-size: 5rem;
+    margin: 2rem 0;
+  }
+
+  .fashion-no {
+    font-size: 10rem;
+  }
+
+  .fashion-text {
+    padding: 2rem 0 0 0;
+    text-align: center;
+  }
+
+  .nav-bar {
+    display: block;
+  }
+
+  .nav-links {
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .contact h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .contact p {
+    font-size: ;
+    text-align: center;
+  }
 }
