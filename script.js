@@ -99,6 +99,8 @@ function navToggle(event) {
     gsap.to(".line-2", 0.5, { rotate: "-45", y: -5, background: "black" });
     gsap.to("#logo", 1, { color: "black" });
     gsap.to(".nav-bar", 1, { clipPath: "circle(2500px at 100% -10%" });
+
+    document.body.classList.add("hide");
   } else {
     event.target.classList.remove("active");
 
@@ -106,6 +108,8 @@ function navToggle(event) {
     gsap.to(".line-2", 0.5, { rotate: "0", y: 0, background: "white" });
     gsap.to("#logo", 1, { color: "white" });
     gsap.to(".nav-bar", 1, { clipPath: "circle(50px at 100% -10%" });
+
+    document.body.classList.remove("hide");
   }
 }
 

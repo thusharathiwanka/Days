@@ -227,6 +227,10 @@ body {
   color: rgb(167, 110, 231);
 }
 
+body.hide {
+  overflow: hidden;
+}
+
 .scrollmagic-pin-spacer {
   position: static !important;
 }
