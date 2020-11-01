@@ -6,6 +6,7 @@ let controller;
 let slideScene;
 let pageScene;
 
+//gsap stuff
 function animateSlides() {
   //initializing controller
   controller = new ScrollMagic.Controller();
@@ -117,4 +118,54 @@ window.addEventListener("mousemove", animateCursor);
 window.addEventListener("mouseover", activeCursor);
 burgerMenu.addEventListener("click", navToggle);
 
-animateSlides();
+//barba js stuff
+//initializing
+barba.init({
+  views: [
+    {
+      namespace: "home",
+      beforeEnter() {
+        animateSlides();
+      },
+      beforeLeave() {
+        slideScene.destroy();
+        pageScene.destroy();
+        controller.destroy();
+      },
+    },
+    {
+      namespace: "fashion",
+    },
+  ],
+  transitions: [
+    {
+      leave({ current, next }) {
+        let done = this.async();
+
+        const tl = gsap.timeline({ defaults: { ease: "power.inOut" } });
+        tl.fromTo(current.container, 1, { opacity: 1 }, { opacity: 0 });
+        tl.fromTo(
+          ".swipe",
+          0.75,
+          { x: "-100%" },
+          { x: "0%", onComplete: done },
+          "-=0.5"
+        );
+      },
+      enter({ current, next }) {
+        let done = this.async();
+
+        window.scrollTo(0, 0);
+
+        const tl = gsap.timeline({ defaults: { ease: "power.inOut" } });
+        tl.fromTo(
+          ".swipe",
+          1,
+          { x: "0%" },
+          { x: "100%", stagger: 0.25, onComplete: done }
+        );
+        tl.fromTo(next.container, 1, { opacity: 0 }, { opacity: 1 });
+      },
+    },
+  ],
+});
